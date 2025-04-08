@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Navbar Styling */
@@ -10,24 +11,29 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 5%;
     background-color: #1a1a1a;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav .logo {
-    color: #ffffff;
-    font-size: 1.8rem;
+    color: #1db954;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: white;
+    font-size: 1.1rem;
     transition: color 0.3s;
 }
 
@@ -37,8 +43,8 @@ nav ul li a:hover {
 
 /* Hero Section Styling */
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.jpg') no-repeat center center/cover;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,15 +53,105 @@ nav ul li a:hover {
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
+    margin-bottom: 20px;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-    margin: 20px 0;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
 }
 
 .cta-button {
+    padding: 12px 30px;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #14833b;
+    transform: scale(1.05);
+}
+
+/* Description Section Styling */
+.description-section {
+    background-color: white;
+    padding: 60px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.description-content h2 {
+    font-size: 2.8rem;
+    color: #1db954;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.description-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Products Section Styling */
+.products-section {
+    padding: 60px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.products-section h2 {
+    text-align: center;
+    color: #1db954;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-item:hover {
+    transform: scale(1.03);
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.product-item h3 {
+    margin: 15px 0 10px;
+    font-size: 1.3rem;
+}
+
+.product-item p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.product-item button {
     padding: 10px 20px;
     background-color: #1db954;
     color: white;
@@ -65,62 +161,56 @@ nav ul li a:hover {
     transition: background-color 0.3s;
 }
 
-.cta-button:hover {
+.product-item button:hover {
     background-color: #14833b;
 }
 
-/* Contact Section Styling */
-.contact-section {
-    padding: 50px;
-    background-color: white;
+/* Product Detail Section Styling */
+.product-detail-section {
+    padding: 60px;
     margin: 50px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-section form {
+.product-detail img {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.product-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    gap: 20px;
 }
 
-.contact-section input, .contact-section textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.product-info h2 {
+    font-size: 2.2rem;
+    color: #1db954;
 }
 
-.contact-section button {
-    padding: 10px;
+.product-info p {
+    font-size: 1.1rem;
+}
+
+.product-info button {
+    padding: 12px 30px;
     background-color: #1db954;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.contact-section button:hover {
+.product-info button:hover {
     background-color: #14833b;
-}
-
-/* Social Media Links Styling */
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.social-links a {
-    font-size: 1.5rem;
-    color: #1a1a1a;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #1db954;
 }
 
 /* Footer Styling */
@@ -129,4 +219,5 @@ footer {
     padding: 20px;
     background-color: #1a1a1a;
     color: white;
+    margin-top: 50px;
 }
