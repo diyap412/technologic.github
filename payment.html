@@ -34,9 +34,7 @@
   <script>
     document.getElementById('payment-form').addEventListener('submit', function(e) {
         e.preventDefault();
-
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
         const order = {
             number: Math.floor(100000 + Math.random() * 900000),
             date: new Date(),
@@ -44,7 +42,6 @@
             items: cart,
             total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
         };
-
         localStorage.setItem('order', JSON.stringify(order));
         localStorage.removeItem('cart');
         window.location.href = 'confirmation.html';
