@@ -37,7 +37,6 @@
         document.getElementById('order-number').textContent = order.number;
         document.getElementById('delivery-date').textContent = new Date(order.delivery).toDateString();
         document.getElementById('order-total').textContent = order.total.toFixed(2);
-
         const orderItems = document.getElementById('order-items');
         order.items.forEach(item => {
             const itemDiv = document.createElement('div');
@@ -45,7 +44,6 @@
             itemDiv.innerHTML = `<p><strong>${item.name}</strong> × ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}</p>`;
             orderItems.appendChild(itemDiv);
         });
-
         localStorage.removeItem('order');
     } else {
         document.querySelector('.description-section').innerHTML = '<h2>Order not found.</h2>';
