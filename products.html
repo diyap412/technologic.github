@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,17 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav>
         <div class="logo">Technologic</div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
 
-    <!-- Products Section -->
     <section id="products" class="products-section">
         <h2>Our Products</h2>
         <div class="products-grid">
@@ -24,26 +23,17 @@
                 <img src="product1.jpg" alt="Product 1">
                 <h3>Product 1</h3>
                 <p>$199.99</p>
-                <a href="product-details.html?name=Product%201&description=The%20latest%20trending%20tech%20device&price=199.99&image=product1.jpg"><button>View Details</button></a>
+                <button class="add-to-cart" data-name="Product 1" data-description="Trending tech device" data-price="199.99" data-image="product1.jpg">Add to Cart</button>
             </div>
             <div class="product-item">
                 <img src="product2.jpg" alt="Product 2">
                 <h3>Product 2</h3>
                 <p>$299.99</p>
-                <a href="product-details.html?name=Product%202&description=Cutting-edge%20technology%20at%20its%20finest&price=299.99&image=product2.jpg"><button>View Details</button></a>
-            </div>
-            <div class="product-item">
-                <img src="product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>$399.99</p>
-                <a href="product-details.html?name=Product%203&description=Sleek%20and%20powerful%20innovation&price=399.99&image=product3.jpg"><button>View Details</button></a>
+                <button class="add-to-cart" data-name="Product 2" data-description="Cutting-edge device" data-price="299.99" data-image="product2.jpg">Add to Cart</button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Technologic. All rights reserved.</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
