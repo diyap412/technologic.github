@@ -3,64 +3,63 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #fdfdfd;
     color: #333;
-}
-
-nav {
+  }
+  
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 5%;
-    background-color: #ffffff;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
-}
-
-nav .logo {
+  }
+  
+  nav .logo {
     font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-weight: 600;
     color: #111;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
     margin: 0;
     padding: 0;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: #555;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     color: #000;
-}
-
-.hero {
+  }
+  
+  .hero {
     text-align: center;
     padding: 100px 20px;
     background-color: #f8f8f8;
-}
-
-.hero h1 {
+  }
+  
+  .hero h1 {
     font-size: 2.8rem;
     margin-bottom: 20px;
     color: #222;
-}
-
-.hero p {
+  }
+  
+  .hero p {
     font-size: 1.1rem;
     color: #666;
     max-width: 600px;
     margin: 0 auto 30px auto;
-}
-
-.cta-button {
+  }
+  
+  .cta-button {
     background-color: #333;
     color: white;
     border: none;
@@ -70,84 +69,86 @@ nav ul li a:hover {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .cta-button:hover {
     background-color: #000;
-}
-
-.description-section {
+  }
+  
+  .description-section {
     padding: 60px 5%;
     max-width: 1000px;
     margin: auto;
     text-align: center;
-}
-
-.description-section h2 {
+  }
+  
+  .description-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #222;
-}
-
-.description-section p {
+  }
+  
+  .description-section p {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto 20px auto;
-}
-
-.products-section {
+  }
+  
+  .products-section {
     padding: 60px 5%;
     max-width: 1200px;
     margin: auto;
-}
-
-.products-section h2 {
+  }
+  
+  .products-section h2 {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 40px;
     color: #222;
-}
-
-.products-grid {
+  }
+  
+  .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-}
-
-.product-item {
+  }
+  
+  .product-item {
     background-color: white;
     padding: 20px;
     text-align: center;
     border: 1px solid #eee;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
     transition: transform 0.2s ease;
-}
-
-.product-item:hover {
+  }
+  
+  .product-item:hover {
     transform: translateY(-5px);
-}
-
-.product-item img {
+  }
+  
+  .product-item img {
     max-width: 100%;
     border-radius: 6px;
     margin-bottom: 15px;
-}
-
-.product-item h3 {
+  }
+  
+  .product-item h3 {
     font-size: 1rem;
     color: #222;
     margin: 10px 0;
-}
-
-.product-item p {
+  }
+  
+  .product-item p {
     color: #999;
     font-size: 0.9rem;
-}
-
-.product-item button {
+  }
+  
+  .product-item button {
     margin-top: 15px;
     padding: 10px 25px;
     background-color: #333;
@@ -156,50 +157,50 @@ nav ul li a:hover {
     border-radius: 5px;
     font-size: 0.85rem;
     cursor: pointer;
-}
-
-.product-item button:hover {
+  }
+  
+  .product-item button:hover {
     background-color: #000;
-}
-
-.cart-section {
+  }
+  
+  .cart-section {
     padding: 60px 5%;
     max-width: 800px;
     margin: auto;
-}
-
-.cart-section h2 {
+  }
+  
+  .cart-section h2 {
     text-align: center;
     margin-bottom: 40px;
     color: #222;
-}
-
-.cart-item {
+  }
+  
+  .cart-item {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #eee;
     padding: 20px 0;
-}
-
-.cart-item h3 {
+  }
+  
+  .cart-item h3 {
     margin: 0;
     font-size: 1rem;
-}
-
-.cart-item p {
+  }
+  
+  .cart-item p {
     margin: 5px 0;
     color: #777;
     font-size: 0.9rem;
-}
-
-.cart-summary {
+  }
+  
+  .cart-summary {
     text-align: right;
     margin-top: 30px;
     font-size: 1.2rem;
     color: #333;
-}
-
-#checkout-button {
+  }
+  
+  #checkout-button {
     background-color: #333;
     color: white;
     border: none;
@@ -207,13 +208,13 @@ nav ul li a:hover {
     cursor: pointer;
     margin-top: 20px;
     float: right;
-}
-
-#checkout-button:hover {
+  }
+  
+  #checkout-button:hover {
     background-color: #000;
-}
-
-footer {
+  }
+  
+  footer {
     text-align: center;
     padding: 30px 10px;
     background-color: #fafafa;
@@ -221,4 +222,5 @@ footer {
     font-size: 0.85rem;
     border-top: 1px solid #eee;
     margin-top: 60px;
-}
+  }
+  
