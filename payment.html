@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technologic - Payment</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Technologic</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Shop</a></li>
+    </ul>
+  </nav>
+
+  <section class="description-section">
+    <h2>Secure Checkout</h2>
+    <form id="payment-form" style="max-width: 400px; margin: auto;">
+      <input type="text" placeholder="Name on Card" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
+      <input type="text" placeholder="Card Number" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
+      <input type="text" placeholder="Expiry Date (MM/YY)" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
+      <input type="text" placeholder="CVV" required style="width: 100%; padding: 12px; margin-bottom: 20px;">
+      <button type="submit" class="cta-button" style="width: 100%;">Pay Now</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Technologic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const order = {
+            number: Math.floor(100000 + Math.random() * 900000),
+            date: new Date(),
+            delivery: new Date(Date.now() + 5 * 86400000),
+            items: cart,
+            total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        };
+
+        localStorage.setItem('order', JSON.stringify(order));
+        localStorage.removeItem('cart');
+        window.location.href = 'confirmation.html';
+    });
+  </script>
+</body>
+</html>
