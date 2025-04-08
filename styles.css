@@ -6,7 +6,6 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar Styling */
 nav {
     display: flex;
     justify-content: space-between;
@@ -41,7 +40,6 @@ nav ul li a:hover {
     color: #1db954;
 }
 
-/* Hero Section Styling */
 .hero {
     height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero.jpg') no-repeat center center/cover;
@@ -78,7 +76,6 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Description Section Styling */
 .description-section {
     background-color: white;
     padding: 60px;
@@ -102,7 +99,6 @@ nav ul li a:hover {
     line-height: 1.8;
 }
 
-/* Products Section Styling */
 .products-section {
     padding: 60px;
     margin: 50px auto;
@@ -165,7 +161,6 @@ nav ul li a:hover {
     background-color: #14833b;
 }
 
-/* Product Detail Section Styling */
 .product-detail-section {
     padding: 60px;
     margin: 50px auto;
@@ -213,7 +208,6 @@ nav ul li a:hover {
     background-color: #14833b;
 }
 
-/* Footer Styling */
 footer {
     text-align: center;
     padding: 20px;
