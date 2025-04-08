@@ -1,37 +1,75 @@
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth'
-        });
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(product) {
+    const existingProduct = cart.find(item => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({...product, quantity: 1});
+    }
+
+    updateCartCount();
+    saveCart();
+}
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    }
+}
+
+function displayCartItems() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cartSummaryElement = document.getElementById('cart-summary');
+
+    if (!cartItemsElement || !cartSummaryElement) return;
+
+    cartItemsElement.innerHTML = '';
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItemsElement.innerHTML = '<p>Your cart is empty.</p>';
+        cartSummaryElement.innerHTML = '';
+        return;
+    }
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const cartItem = document.createElement('div');
+        cartItem.innerHTML = `
+            <div>
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p>Price: $${item.price.toFixed(2)}</p>
+                <p>Quantity: ${item.quantity}</p>
+            </div>
+            <button onclick="removeFromCart('${item.name}')">Remove</button>
+        `;
+        cartItemsElement.appendChild(cartItem);
     });
-});
 
-// Contact Form Submission Handler
+    cartSummaryElement.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+}
 
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
+function removeFromCart(productName) {
+    const index = cart.findIndex(item => item.name === productName);
+    if (index !== -1) {
+        cart.splice(index, 1);
+        saveCart();
+        displayCartItems();
+        updateCartCount();
+    }
+}
 
-    const name = document.querySelector('input[name="name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const message = document.querySelector('textarea[name="message"]').value;
-
-    console.log('Form Submission:', { name, email, message });
-
-    alert('Thank you for reaching out, ' + name + '! We will get back to you shortly.');
-
-    // Clear form after submission
-    this.reset();
-});
-
-// Animate Hero Button on Hover
-
-document.querySelector('.cta-button').addEventListener('mouseover', function() {
-    this.style.transform = 'scale(1.05)';
-    this.style.transition = 'transform 0.3s';
-});
-
-document.querySelector('.cta-button').addEventListener('mouseout', function() {
-    this.style.transform = 'scale(1)';
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+    displayCartItems();
 });
