@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Technologic - Payment</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -33,18 +33,17 @@
 
   <script>
     document.getElementById('payment-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const order = {
-            number: Math.floor(100000 + Math.random() * 900000),
-            date: new Date(),
-            delivery: new Date(Date.now() + 5 * 86400000),
-            items: cart,
-            total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-        };
-        localStorage.setItem('order', JSON.stringify(order));
-        localStorage.removeItem('cart');
-        window.location.href = 'confirmation.html';
+      e.preventDefault();
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const order = {
+        number: Math.floor(100000 + Math.random() * 900000),
+        delivery: new Date(Date.now() + 5 * 86400000),
+        items: cart,
+        total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+      };
+      localStorage.setItem('order', JSON.stringify(order));
+      localStorage.removeItem('cart');
+      window.location.href = 'confirmation.html';
     });
   </script>
 </body>
