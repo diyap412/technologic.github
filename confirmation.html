@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Order Confirmation</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,9 +18,9 @@
 
   <section class="description-section" style="max-width: 800px; margin: auto;">
     <h2>Thank You for Your Purchase!</h2>
-    <p>Your order has been successfully placed.</p>
+    <p>Your order has been placed.</p>
     <p><strong>Order Number:</strong> <span id="order-number"></span></p>
-    <p><strong>Estimated Delivery Date:</strong> <span id="delivery-date"></span></p>
+    <p><strong>Estimated Delivery:</strong> <span id="delivery-date"></span></p>
     <h3 style="margin-top: 40px;">Order Summary</h3>
     <div id="order-items"></div>
     <p style="margin-top: 20px;"><strong>Total:</strong> $<span id="order-total"></span></p>
@@ -34,21 +34,19 @@
   <script>
     const order = JSON.parse(localStorage.getItem('order'));
     if (order) {
-        document.getElementById('order-number').textContent = order.number;
-        document.getElementById('delivery-date').textContent = new Date(order.delivery).toDateString();
-        document.getElementById('order-total').textContent = order.total.toFixed(2);
-        const orderItems = document.getElementById('order-items');
-        order.items.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.style.marginBottom = '15px';
-            itemDiv.innerHTML = `<p><strong>${item.name}</strong> × ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}</p>`;
-            orderItems.appendChild(itemDiv);
-        });
-        localStorage.removeItem('order');
+      document.getElementById('order-number').textContent = order.number;
+      document.getElementById('delivery-date').textContent = new Date(order.delivery).toDateString();
+      document.getElementById('order-total').textContent = order.total.toFixed(2);
+      const container = document.getElementById('order-items');
+      order.items.forEach(item => {
+        const div = document.createElement('div');
+        div.innerHTML = `<p><strong>${item.name}</strong> × ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}</p>`;
+        container.appendChild(div);
+      });
+      localStorage.removeItem('order');
     } else {
-        document.querySelector('.description-section').innerHTML = '<h2>Order not found.</h2>';
+      document.querySelector('.description-section').innerHTML = '<h2>Order not found.</h2>';
     }
   </script>
-
 </body>
 </html>
