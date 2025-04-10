@@ -83,6 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkout = document.getElementById('checkout-button');
   if (checkout) {
     checkout.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
       window.location.href = 'payment.html';
     });
   }
