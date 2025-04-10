@@ -19,8 +19,8 @@
   <section class="description-section">
     <h2>Secure Checkout</h2>
     <form id="payment-form" style="max-width: 400px; margin: auto;">
+      <input type="text" id="card-number" placeholder="Card Number" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
       <input type="text" placeholder="Name on Card" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
-      <input type="text" placeholder="Card Number" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
       <input type="text" placeholder="Expiry Date (MM/YY)" required style="width: 100%; padding: 12px; margin-bottom: 12px;">
       <input type="text" placeholder="CVV" required style="width: 100%; padding: 12px; margin-bottom: 20px;">
       <button type="submit" class="cta-button" style="width: 100%;">Pay Now</button>
@@ -32,8 +32,29 @@
   </footer>
 
   <script>
+    function isValidCardNumber(number) {
+      const clean = number.replace(/\D/g, '');
+      let sum = 0;
+      let shouldDouble = false;
+      for (let i = clean.length - 1; i >= 0; i--) {
+        let digit = parseInt(clean.charAt(i));
+        if (shouldDouble) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+        shouldDouble = !shouldDouble;
+      }
+      return sum % 10 === 0;
+    }
+
     document.getElementById('payment-form').addEventListener('submit', function(e) {
       e.preventDefault();
+      const cardNumber = document.getElementById('card-number').value;
+      if (!isValidCardNumber(cardNumber)) {
+        alert('Invalid card number. Please try again.');
+        return;
+      }
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       const order = {
         number: Math.floor(100000 + Math.random() * 900000),
